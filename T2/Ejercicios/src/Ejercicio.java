@@ -100,6 +100,72 @@ public class Ejercicio {
     }
 
     public void ejercicio5(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce tu edad:");
+        int edad = scn.nextInt();
+
+        System.out.println("¿Tienes el carnet de conducir?");
+        boolean tieneCarnet = scn.nextBoolean();
+
+        boolean esMayor = edad >= 21;
+
+        System.out.println("¿Eres mayor de 21 años?: "+esMayor);
+        System.out.println("¿Tienes carnet?: "+tieneCarnet);
+
+        boolean alquilarCoche = esMayor && tieneCarnet;
+
+        System.out.println("¿Puedes alquilar un coche?: "+alquilarCoche);
+
+        scn.close();
+    }
+
+    public void ejercicio6(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce el precio del producto:");
+        int precioProducto = scn.nextInt();
+        System.out.println("Introduce el porcentaje de descuento:");
+        double porcentajeDescuento = scn.nextDouble();
+
+        porcentajeDescuento = porcentajeDescuento/100;
+
+        System.out.println("Precio original: "+precioProducto);
+
+        double precioDescuento = precioProducto * porcentajeDescuento;
+        System.out.println("Descuento: "+precioDescuento);
+
+        double precioFinal = precioProducto - precioDescuento;
+        System.out.println("Precio final: "+precioFinal);
+
+        scn.close();
+
+    }
+
+    public void ejercicio7(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce tu edad:");
+        int edad = scn.nextInt();
+        System.out.println("¿Eres estudiante?:");
+        boolean eresEstudiante = scn.nextBoolean();
+
+        boolean eresMenor26 = edad < 26;
+        System.out.println("¿Eres menor de 26 años?: "+eresMenor26);
+        System.out.println("¿Eres estudiante?: "+eresEstudiante);
+        System.out.println("¿NO eres estudiante?: "+!eresEstudiante);
+
+        boolean descuentoJoven = eresMenor26 && eresEstudiante;
+        System.out.println("¿Tiene descuento joven?: "+descuentoJoven);
+        System.out.println("¿Tiene descuento estudiante?: "+eresEstudiante);
+
+        boolean descuentoEspecial = eresMenor26 && eresEstudiante;
+        System.out.println("¿Tienes descuento especial?: "+descuentoEspecial);
+
+        scn.close();
+    }
+
+    public void ejercicio8(){;
 
     }
 }
