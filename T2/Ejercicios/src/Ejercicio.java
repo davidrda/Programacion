@@ -166,6 +166,85 @@ public class Ejercicio {
     }
 
     public void ejercicio8(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce el primer número");
+        int num1 = scn.nextInt();
+        System.out.println("Introduce el segundo número:");
+        int num2 = scn.nextInt();
+        System.out.println("Introduce el tercer número:");
+        int num3 = scn.nextInt();
+
+        int suma = num1 + num2 + num3;
+        double promedio = suma/3;
+        double resultadoFinal = (num1 * num2) / num3;
+
+        System.out.println("Suma de los tres números: "+suma);
+        System.out.println("Promedio: "+promedio);
+        System.out.println("Resultado de (num1 * num2) / num3: "+resultadoFinal);
+
+        scn.close();
+    }
+
+    public void ejercicio9(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce la nota del primer examen");
+        int nota1 = scn.nextInt();
+        System.out.println("Introduce la nota del segundo examen:");
+        int nota2 = scn.nextInt();
+        System.out.println("Introduce la nota del tercer examen:");
+        int nota3 = scn.nextInt();
+
+        double notaMedia = (nota1 + nota2 + nota3)/3;
+        System.out.println("Nota media: "+notaMedia);
+
+        boolean haAprobado = notaMedia >=5;
+        System.out.println("¿Ha aprobado?: "+haAprobado);
+
+        boolean notable = notaMedia >=7;
+        System.out.println("¿Tiene notable?: "+notable);
+
+        boolean sobresaliente = notaMedia >=9;
+        System.out.println("¿Tiene sobresaliente?: "+sobresaliente);
+
+    }
+
+    public void ejercicio10(){;
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce el salario por hora:");
+        int salarioHora = scn.nextInt();
+        System.out.println("Introduce las horas trabajadas:");
+        int horasTrabajadas = scn.nextInt();
+        boolean horasExtra = horasTrabajadas > 40;
+        System.out.println("¿Has hecho horas extra? "+horasExtra);
+
+        int horasNormales = Math.min(horasTrabajadas, 40);
+        int numHorasExtra = Math.max(horasTrabajadas - 40, 0);
+
+        System.out.println("Horas normales (máximo 40): "+horasNormales);
+        System.out.println("Horas extra: "+numHorasExtra);
+
+        System.out.println("Trabajaste más de 40 horas?: "+horasExtra);
+
+        boolean permitido = true;
+        System.out.println("¿Tienes derecho a horas extra?: "+permitido);
+
+        boolean aplicanHorasExtra = horasExtra && permitido;
+        System.out.println("¿Se aplican horas extra?: "+aplicanHorasExtra);
+
+        double salario = horasNormales * salarioHora;
+        System.out.println("Salario por horas normales: "+salario);
+
+        double salarioExtras = numHorasExtra * (salarioHora*2);
+        System.out.println("Salario por horas extra (al doble): "+salarioExtras);
+
+        double salarioTotal = salario + salarioExtras;
+        System.out.println("Salario total: "+salarioTotal);
+
+        scn.close();
+
 
     }
 }
