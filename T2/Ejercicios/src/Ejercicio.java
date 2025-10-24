@@ -210,7 +210,9 @@ public class Ejercicio {
 
     }
 
-    public void ejercicio10(){;
+    public void ejercicio10() {
+        ;
+        /*
         scn = new Scanner(System.in);
 
         System.out.println("Introduce el salario por hora:");
@@ -246,5 +248,35 @@ public class Ejercicio {
         scn.close();
 
 
+    }
+    */
+        Scanner lectorTeclado = new Scanner(System.in);
+
+        System.out.println("Indica cuanto cobras por hora:");
+        int salarioHora = lectorTeclado.nextInt();
+
+        System.out.println("Indica cuántas horas has trabajado:");
+        int horasTrabajadas = lectorTeclado.nextInt();
+
+        System.out.println("¿Has trabajado horas extras?");
+        boolean horasExtras = lectorTeclado.nextBoolean();
+
+        int salarioTotal = 0;
+        salarioTotal += 40 * salarioHora;
+
+        if (horasExtras && horasTrabajadas > 40) {
+            int numeroHorasExtras = horasTrabajadas - 40;
+            salarioTotal += numeroHorasExtras * (salarioHora * 2);
+        }
+
+        //System.out.println("El salario cobrado este mes es " + salarioTotal);
+        // 3.19 = %.2f (si quieres que salga 3.00 por ejemplo sería %.f
+        // 3 = %d
+        // "Euros" = %s
+        // true = %b
+        // A = %c
+        System.out.printf("El salario cobrado este mes es %d euros\n",salarioTotal);
+
+        lectorTeclado.close();
     }
 }
