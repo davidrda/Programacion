@@ -208,4 +208,13 @@ public class Ejercicios {
             System.out.println("Importe final: "+importeCompraDto+"€");
         }
     }
+
+    public void ejercicio12(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce contraseña:");
+        String pass = scn.next();
+        boolean nCaracteres = pass.length() >=8
+    }
 }
