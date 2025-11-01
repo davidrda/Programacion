@@ -203,9 +203,27 @@ public class Ejercicios {
             dtoAplicado = (importeCompra * 0.20);
             importeCompraDto = importeCompra - (dtoAplicado);
             System.out.println("Importe original: "+importeCompra);
-            System.out.println("Eres socio y tu compra es >= 200€");
-            System.out.println("Descuento aplicaco (20%): "+dtoAplicado+"€");
+            System.out.println("Eres socio y tu compra es: "+importeCompra+"€");
+            System.out.println("Descuento aplicado (20%): "+dtoAplicado+"€");
             System.out.println("Importe final: "+importeCompraDto+"€");
+        } else if (eresSocio && importeCompra < 200){
+            dtoAplicado = (importeCompra * 0.10);
+            importeCompraDto = importeCompra - (dtoAplicado);
+            System.out.println("Importe original: "+importeCompra);
+            System.out.println("Eres socio y tu compra es: "+importeCompra+"€");
+            System.out.println("Descuento aplicado (10%): "+dtoAplicado+"€");
+            System.out.println("Importe final: "+importeCompraDto+"€");
+        } else if (!eresSocio && importeCompra >= 300){
+            dtoAplicado = (importeCompra * 0.05);
+            importeCompraDto = importeCompra - (dtoAplicado);
+            System.out.println("Importe original: "+importeCompra);
+            System.out.println("NO eres socio y tu compra es: "+importeCompra+"€");
+            System.out.println("Descuento aplicado (5%): "+dtoAplicado+"€");
+            System.out.println("Importe final: "+importeCompraDto+"€");
+        } else {
+            System.out.println("Importe original: "+importeCompra);
+            System.out.println("Descuento aplicado: 0€");
+            System.out.println("Importe final: "+importeCompra);
         }
     }
 
@@ -215,6 +233,123 @@ public class Ejercicios {
 
         System.out.println("Introduce contraseña:");
         String pass = scn.next();
-        boolean nCaracteres = pass.length() >=8
+        boolean nCaracteres = pass.length() >=8; // se indica la longitud que sea igual o mayor a 8
+        System.out.println("La contraseña tiene al menos 8 caracteres? "+nCaracteres);
+        boolean esValida = !(pass.equals("12345678") || pass.equals("password")); // no puede ser igual a eso
+        System.out.println("La contraseña es prohibida? "+!esValida);
+        boolean contieneNumero = pass.contains("1") || pass.contains("2") || pass.contains("3") || pass.contains("4") || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("0");
+        System.out.println("La pass contiene al menos un número? "+contieneNumero);
+        boolean passValida = nCaracteres && esValida && contieneNumero;
+        System.out.println("La contraseña es valida? "+passValida);
+
+    }
+
+    public void ejercicio13(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce tu edad:");
+        int edad = scn.nextInt();
+        System.out.println("Introduce el día de la semana: ");
+        int dia = scn.nextInt();
+        int calculoEntrada = 0;
+        boolean menorDe12 = edad < 12;
+        if (edad > 12) {
+            calculoEntrada = 0;
+        } else if (edad < 17) {
+            if (dia == 2) {
+                calculoEntrada = 0;
+            } else {
+                calculoEntrada = 5;
+            }
+        } else if (edad < 64) {
+            if (dia == 4){
+                calculoEntrada = 7;
+            } else {
+                calculoEntrada = 10;
+            }
+        } else if (edad >= 65) {
+            calculoEntrada = 6;
+        }
+
+        String diaSemana = "";
+        boolean esMartes = dia == 2;
+
+        if (dia == 1) {
+            diaSemana = "Lunes";
+        } else if (dia == 2) {
+            diaSemana = "Martes";
+        } else if (dia == 3) {
+            diaSemana = "Miercoles";
+        } else if (dia == 4) {
+            diaSemana = "Jueves";
+        } else if (dia == 5) {
+            diaSemana = "Viernes";
+        } else if (dia == 6) {
+            diaSemana = "Sabado";
+        } else if (dia == 7) {
+            diaSemana = "Domingo";
+        }
+
+        System.out.println("Día de la semana: "+diaSemana);
+        System.out.println("La entrada para la edad indicada es: "+calculoEntrada+" para el día "+diaSemana);
+        System.out.println("Eres menor de 12?: "+menorDe12);
+        System.out.println("Es martes? "+esMartes);
+    }
+
+    public void ejercicio14(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce tu edad");
+        int edad = scn.nextInt();
+        System.out.println("Introduce tus ingresos mensuales");
+        int ingresos = scn.nextInt();
+        System.out.println("Tienes deudas pendientes?");
+        boolean deudasPendientes = scn.nextBoolean();
+
+        boolean edadEntre21y65 = edad >= 21 && edad <= 65;
+        boolean requisitoIngresos = ingresos >= 1000;
+        boolean elegible = !deudasPendientes && edadEntre21y65 && requisitoIngresos;
+
+        if (elegible) {
+            System.out.println("Eres elegible");
+        } else {
+            System.out.println("No eres elegible");
+        }
+    }
+
+    public void ejercicio15(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce el peso del paquete: ");
+        int peso = scn.nextInt();
+        System.out.println("Introduce la distancia de envío: ");
+        int distancia  = scn.nextInt();
+        System.out.println("Es envio urgente?");
+        boolean envioUrgente = scn.nextBoolean();
+
+        int precioBase = 5;
+        int pesoExtra = 0;
+
+        if (peso > 5) {
+            pesoExtra = peso - 5;
+        }
+
+        int costePesoExtra = pesoExtra * 2;
+        double costeTotal = 0;
+
+        if (peso >=5){
+            costeTotal = precioBase + costePesoExtra;
+        }
+        System.out.println("Coste adicional por peso: "+costePesoExtra);
+        if (distancia > 100) {
+            costeTotal = costeTotal + 10;
+        }
+        if (envioUrgente) {
+            costeTotal = costeTotal * 1.5;
+        }
+        System.out.println("coste total del envío: "+costeTotal);
     }
 }
