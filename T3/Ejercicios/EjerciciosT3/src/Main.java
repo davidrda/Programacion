@@ -18,5 +18,10 @@ public class Main {
         // ejercicios.ejercicio13();
         // ejercicios.ejercicio14();
         // ejercicios.ejercicio15();
+        // ejercicios.ejercicio1_1();
+        // ejercicios.ejercicio1_2();
+        // ejercicios.ejercicio1_3();
+        // ejercicios.ejercicio1_4();
+        ejercicios.ejercicio1_5();
     }
 }

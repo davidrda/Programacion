@@ -357,9 +357,154 @@ public class Ejercicios {
         scn = new Scanner(System.in);
         System.out.println("Introduce un numero: ");
         int numero = scn.nextInt();
+        String diaSemana = "";
 
-        switch (numero){
-            case 1 = 
+        if (numero >= 1 && numero <=7){
+            switch (numero){
+                case 1:
+                    System.out.println("Lunes");
+                    diaSemana = "Lunes";
+                    break;
+                case 2:
+                    System.out.println("Martes");
+                    diaSemana = "Martes";
+                    break;
+                case 3:
+                    System.out.println("Miércoles");
+                    diaSemana = "Miércoles";
+                    break;
+                case 4:
+                    System.out.println("Jueves");
+                    diaSemana = "Jueves";
+                    break;
+                case 5:
+                    System.out.println("Viernes");
+                    diaSemana = "Viernes";
+                    break;
+                case 6:
+                    System.out.println("Sabado");
+                    diaSemana = "Sabado";
+                    break;
+                case 7:
+                    System.out.println("Domingo");
+                    diaSemana = "Domingo";
+                    break;
+                default:
+                    System.out.println("No está permitido este número");
+            }
         }
+        System.out.println("El día "+numero+" es: "+diaSemana);
+    }
+
+    public void ejercicio1_2(){
+        scn = new Scanner(System.in);
+        System.out.println("Introduce tu calificación (A-F): ");
+        String calificacion = scn.nextLine();
+        String resultado = "";
+
+            switch (calificacion) {
+                case "A":
+                    resultado = "Excelente";
+                    break;
+                case "B":
+                    resultado = "Muy bien";
+                    break;
+                case "C":
+                    resultado = "Bien";
+                    break;
+                case "D":
+                    resultado = "Suficiente";
+                    break;
+                case "F":
+                    resultado = "Insuficiente";
+                    break;
+                default:
+            }
+        System.out.println("Calificación "+calificacion+ " : "+resultado);
+    }
+
+    public void ejercicio1_3(){
+        scn = new Scanner(System.in);
+        System.out.println("Introduce el primer número: ");
+        int numero1 = scn.nextInt();
+        System.out.println("Introduce el segundo número: ");
+        int numero2 = scn.nextInt();
+        System.out.println("Introduce la operación: ");
+        String operacion = scn.next();
+        int resultado = 0;
+
+        switch (operacion){
+            case "+":
+                resultado = numero1 + numero2;
+                break;
+            case "-":
+                resultado = numero1 - numero2;
+                break;
+            case "*":
+                resultado = numero1 * numero2;
+                break;
+            case "/":
+                resultado = numero1 / numero2;
+                break;
+        }
+        // System.out.println("Resultado: "+numero1+" "+operacion+" "+numero2+" = "+resultado);
+        System.out.printf("%d %s %d = %d%n",numero1,operacion,numero2,resultado);
+    }
+
+    public void ejercicio1_4(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("MENÚ");
+        System.out.println("1. Ver perfil");
+        System.out.println("2. Configuración");
+        System.out.println("3. Ayuda");
+        System.out.println("4. Salir");
+
+        System.out.println("Elige una opción: ");
+        int opcion = scn.nextInt();
+        String resultado = "";
+
+        switch (opcion){
+            case 1:
+                resultado = "Ver perfil";
+                break;
+            case 2:
+                resultado = "Configuración";
+                break;
+            case 3:
+                resultado = "Ayuda";
+                break;
+            case 4:
+                resultado = "Salir";
+                break;
+            default:
+                System.out.println("No es válido");
+        }
+        System.out.printf("Has seleccionado: %s%n",resultado);
+    }
+
+    public void ejercicio1_5(){
+
+        scn = new Scanner(System.in);
+        System.out.println("Introduce el número del mes (1-12):");
+        int numeroMes = scn.nextInt();
+        String resultado = "";
+
+        switch (numeroMes){
+            case 12, 1, 2:
+                resultado = "Invierno";
+                break;
+            case 3, 4, 5:
+                resultado = "Primavera";
+                break;
+            case 6, 7, 8:
+                resultado = "Verano";
+                break;
+            case 9, 10, 11:
+                resultado = "Otoño";
+                break;
+        }
+        System.out.printf("El mes %d corresponde a: %s%n",numeroMes,resultado);
     }
 }
