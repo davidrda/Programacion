@@ -38,10 +38,11 @@ public class EstructuraSwitch {
         System.out.println("Indicame tu nombre");
         String nombre = scanner.next();
         String apellido= "";
-        switch (nombre.toLowerCase()){
-            case "borja" ->{
+
+        switch (nombre.toUpperCase()){
+            case "BORJA" ->{
                 System.out.println("Nombre introducido: Borja");
-                apellido = "";
+                apellido = "Martin";
             }
             case "maria" ->{
                 System.out.println("Nombre introducido: María");
@@ -56,7 +57,7 @@ public class EstructuraSwitch {
                 apellido = "";
             }
             default -> {
-
+                System.out.println("Nombre no contemplado");
             }
         }
         System.out.println(apellido);
@@ -88,25 +89,51 @@ public class EstructuraSwitch {
         System.out.println("6 - Salir");
         System.out.println("Que quieres hacer");
         int opcion = scanner.nextInt();
+        int operando1=0, operando2=0;
+        if (opcion>=1 && opcion<6){
+            System.out.println("Introduce operando 1:");
+            operando1 = scanner.nextInt();
+            System.out.println("Introduce operando 2:");
+            operando2  = scanner.nextInt();
+        }
+        double resultado = 0;
         switch (opcion){
             case 1 ->{
-
+                System.out.println("Vas a sumar");
+                resultado = operando1+operando2;
             }
             case 2 ->{
+                System.out.println("Vas a restar");
+                resultado = operando1-operando2;
 
             }
             case 3 ->{
+                System.out.println("Vas a multiplicar");
+                resultado = operando1*operando2;
 
             }
             case 4 ->{
+                System.out.println("Vas a dividir");
+                if (operando2 != 0 && operando1 != 0) {
+                    resultado = (double) operando1/operando2; // pasar a double porque es división
+                }
 
             }
             case 5 ->{
+                System.out.println("Vas a modular");
+                resultado = operando1%operando2;
+
 
             }
             case 6 ->{
+                System.out.println("Vas a salir");
+                resultado = operando1+operando2;
 
             }
+            default ->{
+                System.out.println("Opción no contemplada");
+            }
         }
+        System.out.println("El resultado obtenido es: "+resultado);
     }
 }
