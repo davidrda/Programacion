@@ -352,4 +352,14 @@ public class Ejercicios {
         }
         System.out.println("coste total del envío: "+costeTotal);
     }
+
+    public void ejercicio1_1(){
+        scn = new Scanner(System.in);
+        System.out.println("Introduce un numero: ");
+        int numero = scn.nextInt();
+
+        switch (numero){
+            case 1 = 
+        }
+    }
 }
