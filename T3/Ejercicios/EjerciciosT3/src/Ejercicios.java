@@ -506,5 +506,83 @@ public class Ejercicios {
                 break;
         }
         System.out.printf("El mes %d corresponde a: %s%n",numeroMes,resultado);
+        scn.close();
+    }
+
+    public void ejercicio1_6(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce un número:");
+        int numero = scn.nextInt();
+
+        System.out.println("Tabla del "+numero+":");
+
+        for (int i = 1; i <=10 ; i++) {
+            int resultado = numero * i;
+            System.out.println(numero + " x " + i + " = " +resultado);
+        }
+        scn.close();
+
+
+    }
+
+    public void ejercicio1_7(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce un número:");
+        int numeroN = scn.nextInt();
+        int suma = 0; // acumulador
+
+        for (int i = 1; i <= numeroN ; i++) {
+            suma +=i; // suma = suma + i
+        }
+        System.out.println("La suma de números del 1 al "+numeroN+" es: "+suma);
+
+        scn.close();
+    }
+
+    public void ejercicio1_8(){
+
+        scn = new Scanner(System.in);
+
+        System.out.print("Introduce un número: ");
+        int n = scn.nextInt();
+        int pares = 0;
+        int impares = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (i %2 == 0){
+                pares++;
+            } else {
+                impares++;
+            }
+
+        }
+        System.out.println("Recorriendo números del 1 al "+n+"...");
+        System.out.println("Números pares encontrados: "+pares);
+        System.out.println("Números impares encontrados: "+impares);
+
+        scn.close();
+    }
+
+    public void ejercicio1_9(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("Introduce un número: ");
+        int numero = scn.nextInt();
+        int factorial = 1;
+        System.out.println("Calculando "+numero+"!");
+
+        if (numero > 0){
+            for (int i = numero ; i >= 1 ; i--) {
+                factorial *= i;
+            }
+        } else {
+            System.out.println("Hay que poner número positivo");
+        }
+        System.out.println("El factorial de " +numero+" es: "+factorial);
     }
 }

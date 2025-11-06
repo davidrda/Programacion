@@ -22,6 +22,10 @@ public class Main {
         // ejercicios.ejercicio1_2();
         // ejercicios.ejercicio1_3();
         // ejercicios.ejercicio1_4();
-        ejercicios.ejercicio1_5();
+        // ejercicios.ejercicio1_5();
+        // ejercicios.ejercicio1_6();
+        // ejercicios.ejercicio1_7();
+        // ejercicios.ejercicio1_8();
+        ejercicios.ejercicio1_9();
     }
 }
