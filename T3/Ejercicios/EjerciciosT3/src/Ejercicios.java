@@ -585,4 +585,39 @@ public class Ejercicios {
         }
         System.out.println("El factorial de " +numero+" es: "+factorial);
     }
+
+    public void ejercicio1_10(){
+
+        scn = new Scanner(System.in);
+
+        System.out.println("---EJERCICIOS---");
+        System.out.println("1. Flexiones");
+        System.out.println("2. Abdominales");
+        System.out.println("3. Sentadillas");
+        System.out.print("Elige un ejercicio (1-3): ");
+        int numeroEjercicio = scn.nextInt();
+        System.out.print("¿Cuántas repeticiones?: ");
+        int repeticiones = scn.nextInt();
+        String resultado = "";
+
+        switch (numeroEjercicio) {
+            case 1:
+                resultado = "flexiones";
+                System.out.println("Has elegido: Flexiones");
+                break;
+            case 2:
+                resultado = "abdominales";
+                System.out.println("Has elegido: Abdominales");
+                break;
+            case 3:
+                resultado = "sentadillas";
+                System.out.println("Has elegido: Sentadillas");
+        }
+        for (int i = 1; i <= repeticiones ; i++) {
+            System.out.println("Repetición "+i+" completada");
+        }
+        System.out.println("Ejercicio completado! Has hecho "+repeticiones+" "+resultado);
+
+        scn.close();
+    }
 }

@@ -26,6 +26,7 @@ public class Main {
         // ejercicios.ejercicio1_6();
         // ejercicios.ejercicio1_7();
         // ejercicios.ejercicio1_8();
-        ejercicios.ejercicio1_9();
+        // ejercicios.ejercicio1_9();
+        ejercicios.ejercicio1_10();
     }
 }
