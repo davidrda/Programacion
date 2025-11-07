@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        EjercicioCuadrado ejercicios = new EjercicioCuadrado();
+        // ejercicios.cuadrado();
+        ejercicios.palindromo();
+
         /*
         // inicial ; final ; incremento
         // [0,5]
@@ -10,7 +14,7 @@ public class Main {
         // son pares
         // son impares
         // el numero medio introducido
-        Scanner scanner = new Scanner(System.in);
+
         int contadorPares=0, contadorImpares=0;
         int sumatorio=0;
         for (int i=0; i<5; i++){
@@ -28,16 +32,13 @@ public class Main {
         System.out.println("El numero de impares es "+contadorImpares);
         System.out.println("El numero medio introducido es "+sumatorio/5);
 
-        */
-
+        for (int i=0; i<11; i++){
+            System.out.printf("%d * %d = %d%n", 5, i, 5*1);
+        }
         /*
         for (int i=10; i>=0; i-=2){
             System.out.println("Ejecucion de linea repetida "+i);
         }
          */
-
-        for (int i=0; i<11; i++){
-            System.out.printf("%d * %d = %d%n", 5, i, 5*1);
-        }
     }
 }
