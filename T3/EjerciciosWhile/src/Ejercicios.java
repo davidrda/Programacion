@@ -158,7 +158,29 @@ public class Ejercicios {
     }
 
     public void ejercicio8(){
-        
+        scanner = new Scanner(System.in);
+
+        int edad;
+
+        do {
+            System.out.println("Introduce tu edad: ");
+            edad = scanner.nextInt();
+
+            if (edad < 0 || edad > 120) {
+                System.out.println("Edad no válida. Debe estar entre 0 y 120.");
+            }
+
+        } while (edad < 0 || edad > 120);
+        System.out.println("Edad válida: " + edad + " años. ¡Gracias!");
+
+        scanner.close();
+    }
+
+    public void ejercicio9(){
+        scanner = new Scanner(System.in);
+
+
+
     }
 }
 
