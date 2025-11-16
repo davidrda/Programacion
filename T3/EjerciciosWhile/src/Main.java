@@ -9,6 +9,8 @@ public class Main {
         // ejercicios.ejercicio5();
         // ejercicios.ejercicio6();
         // ejercicios.ejercicio7();
-        ejercicios.ejercicio8();
+        // ejercicios.ejercicio8();
+        // ejercicios.ejercicio9();
+        ejercicios.ejercicio10();
     }
 }

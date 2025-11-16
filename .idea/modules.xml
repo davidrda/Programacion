@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/T3/Ejercicios/Ejercicios.iml" filepath="$PROJECT_DIR$/T3/Ejercicios/Ejercicios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T2/Ejercicios/Ejercicios2.iml" filepath="$PROJECT_DIR$/T2/Ejercicios/Ejercicios2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EjerciciosClase/EjerciciosClase.iml" filepath="$PROJECT_DIR$/T3/EjerciciosClase/EjerciciosClase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EjerciciosWhile/EjerciciosWhile.iml" filepath="$PROJECT_DIR$/T3/EjerciciosWhile/EjerciciosWhile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstructuraIF/EstructuraIF.iml" filepath="$PROJECT_DIR$/T3/EstructuraIF/EstructuraIF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstructuraSwitch/EstructuraSwitch.iml" filepath="$PROJECT_DIR$/T3/EstructuraSwitch/EstructuraSwitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T3/EstructurasRepeticion/EstructurasRepeticion.iml" filepath="$PROJECT_DIR$/T3/EstructurasRepeticion/EstructurasRepeticion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T2/Operadores/Operadores.iml" filepath="$PROJECT_DIR$/T2/Operadores/Operadores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Programacion.iml" filepath="$PROJECT_DIR$/.idea/Programacion.iml" />
+    </modules>
+  </component>
+</project>

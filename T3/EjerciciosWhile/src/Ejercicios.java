@@ -176,10 +176,126 @@ public class Ejercicios {
         scanner.close();
     }
 
-    public void ejercicio9(){
+    public void ejercicio9() {
         scanner = new Scanner(System.in);
 
+        System.out.println("Cuantos estudiantes hay?");
+        int numeroEstudiantes = scanner.nextInt();
+        int contador = 1;
+        int nota = 0;
+        String letra = "";
 
+
+        while (contador <= numeroEstudiantes) {
+            System.out.print("Introduce la nota del estudiante " + contador + " : ");
+            nota = scanner.nextInt();
+            contador++;
+            switch (nota) {
+                case 10:
+                case 9:
+                    letra = "A";
+                    break;
+                case 8:
+                case 7:
+                    letra = "B";
+                    break;
+                case 6:
+                case 5:
+                    letra = "C";
+                    break;
+                case 4:
+                case 3:
+                    letra = "D";
+                    break;
+                case 2:
+                case 1:
+                case 0:
+                    letra = "E";
+                    break;
+                default:
+                    System.out.println("No existe esta opcion");
+            }
+
+            switch (nota) {
+                case 10:
+                case 9:
+                    letra = "A";
+                    break;
+                case 8:
+                case 7:
+                    letra = "B";
+                    break;
+                case 6:
+                case 5:
+                    letra = "C";
+                    break;
+                case 4:
+                case 3:
+                    letra = "D";
+                    break;
+                case 2:
+                case 1:
+                case 0:
+                    letra = "E";
+                    break;
+                default:
+                    System.out.println("No existe esta opcion");
+            }
+            for (int i = 0; i < numeroEstudiantes; i++) {
+                System.out.println("Estudiante " + (i + 1) + ": " + nota + " puntos = Calificación " + letra);
+            }
+
+
+        }
+    }
+
+    public void ejercicio10 () {
+            scanner = new Scanner(System.in);
+            int saldoInicial = 1000;
+            int opcion;
+            int retiro = 0;
+            int deposito = 0;
+
+            do {
+                System.out.println("MENÚ");
+                System.out.println("1. Consultar saldo");
+                System.out.println("2. Retirar dinero");
+                System.out.println("3. Depositar dinero");
+                System.out.println("4. Salir");
+                System.out.print("Elige una opción: ");
+                opcion = scanner.nextInt();
+                switch (opcion) {
+                    case 1 -> {
+                        System.out.println("Tu saldo actual: " + saldoInicial);
+                    }
+                    case 2 -> {
+                        do {
+                            System.out.println("¿Cuanto deseas retirar?:");
+                            retiro = scanner.nextInt();
+                            if (retiro > saldoInicial) {
+                                System.out.println("Fondos insuficientes.");
+                            }
+                        } while (retiro < saldoInicial);
+                        System.out.println("Retiro exitoso. Has retirado: " + retiro);
+                        System.out.println("Nuevo saldo: " + (saldoInicial - retiro));
+                    }
+                    case 3 ->{
+                        do {
+                            System.out.println("¿Cuanto deseas depositar?:");
+                            deposito = scanner.nextInt();
+                        } while (deposito < 0);
+                        System.out.println("Deposito exitoso. Has deposito: " + deposito);
+                        System.out.println("Nuevo saldo: " + (saldoInicial + deposito));
+                    }
+                    case 4 ->{
+                        System.out.println("Gracias por utilizar el cajero.");
+                    }
+                    default -> {
+                        System.out.println("Opción no disponible");
+                    }
+                }
+
+            } while (opcion > 1 && opcion < 4);
 
     }
 }
