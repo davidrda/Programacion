@@ -32,7 +32,7 @@ public class Main {
 
         int puntosJugador1 = 301;
         int puntosJugador2 = 301;
-        int turno = 1;
+        int turno = 0;
         int dardos = (int)(Math.random()*60)+1;
 
         do {
