@@ -32,6 +32,7 @@ public class Bonoloto {
         for (int i = 0; i < numerosSistema.length; i++) {
             numerosSistema[i] = (int)(Math.random()*20)+1;
         }
+        System.out.println("Números del sistema generados");
     }
 
     public void pedirNumerosUsuario(){
@@ -45,6 +46,41 @@ public class Bonoloto {
             }
             }while (numero<1 || numero>20);
             numerosUsuario[i] = numero;
+        }
+    }
+
+    int acierto = 0;
+
+    public void comprobarAciertosSistema(){
+        for (int i = 0; i < numerosSistema.length; i++) {
+            for (int j = 0; j < numerosUsuario.length; j++) {
+            if (numerosSistema[i] == numerosUsuario[j]){
+                acierto++;
+            }
+            }
+        }
+    }
+
+    public void resolucion(){
+        switch(acierto){
+            case 5 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. Felicidades, has ganado 1.000.000E");
+            }
+            case 4 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. Felicidades, has ganado 10.000E");
+            }
+            case 3 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. Felicidades, has ganado 1.000E");
+            }
+            case 2 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. Has ganado 10E");
+            }
+            case 1 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. Has ganado 10E");
+            }
+            case 0 ->{
+                System.out.println("Has acertado un total de: "+acierto+" veces. No has ganado nada.");
+            }
         }
     }
 }
