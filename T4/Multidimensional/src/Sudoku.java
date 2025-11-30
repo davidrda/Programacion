@@ -1,4 +1,5 @@
 public class Sudoku {
+    // todas las variables que esten dentro de una clase que no sea main deben ser privadas (encapsulamiento)
     private int[][] sudoku = new int[3][3];
 
     public void empezarJuego() {
@@ -7,7 +8,7 @@ public class Sudoku {
             for (int j = 0; j < sudoku[i].length; j++) {
                 int aleatorio;
                 do {
-                    aleatorio = (int) (Math.random() * 30)+1; // 0-8
+                    aleatorio = (int) (Math.random() * 31); // 0-30
                 } while (estaNumero(aleatorio));
                 // preguntar
                 sudoku[i][j] = aleatorio;
@@ -21,9 +22,11 @@ public class Sudoku {
         }
         System.out.println("Mostrando los numeros de una columna concreta");
         numerosColumna(1);
+        System.out.println("Mostrando los numeros de una fila concreta");
         numerosFila(0);
     }
 
+    // recorre cada item y si item == numero retorna true, o sea, dices que sí está repetido
     private boolean estaNumero(int numero) {
         for (int[] fila : sudoku) {
             for (int item : fila) {
