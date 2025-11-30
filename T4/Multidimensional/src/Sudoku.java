@@ -8,7 +8,7 @@ public class Sudoku {
             for (int j = 0; j < sudoku[i].length; j++) {
                 int aleatorio;
                 do {
-                    aleatorio = (int) (Math.random() * 31); // 0-30
+                    aleatorio = (int) (Math.random() * 10);
                 } while (estaNumero(aleatorio));
                 // preguntar
                 sudoku[i][j] = aleatorio;
