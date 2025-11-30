@@ -1,53 +1,48 @@
 public class Sudoku {
-    // todas las variables que esten dentro de una clase que no sea main deben ser privadas (encapsulamiento)
     private int[][] sudoku = new int[3][3];
 
     public void empezarJuego() {
-        // se rellena la matriz con numeros aleatorios
-        for (int i = 0; i < sudoku.length; i++) {
-            for (int j = 0; j < sudoku[i].length; j++) {
+        int totalFilas = sudoku.length;
+        int totalColumnas = sudoku[0].length;
+
+        for (int i = 0; i < totalFilas; i++) {
+            for (int j = 0; j < totalColumnas; j++) {
                 int aleatorio;
                 do {
-                    aleatorio = (int) (Math.random() * 10);
-                } while (estaNumero(aleatorio));
-                // preguntar
+                    aleatorio = (int)(Math.random() * 30);  // 0 a 29
+                } while (estaNumero(aleatorio, i, j));  // revisamos solo lo que ya está lleno
                 sudoku[i][j] = aleatorio;
             }
         }
+
+        // Imprimir la matriz final
+        System.out.println("Sudoku generado:");
         for (int[] fila : sudoku) {
-            for (int item : fila) {
-                System.out.print(item + "\t");
+            for (int num : fila) {
+                System.out.print(num + "\t");
             }
             System.out.println();
         }
-        System.out.println("Mostrando los numeros de una columna concreta");
-        numerosColumna(1);
-        System.out.println("Mostrando los numeros de una fila concreta");
-        numerosFila(0);
     }
 
-    // recorre cada item y si item == numero retorna true, o sea, dices que sí está repetido
-    private boolean estaNumero(int numero) {
-        for (int[] fila : sudoku) {
-            for (int item : fila) {
-                if (item == numero) {
-                    return true;
+    // ✅ Solo revisa las celdas que ya se llenaron (antes de i, j)
+    private boolean estaNumero(int numero, int filaActual, int colActual) {
+        for (int i = 0; i < sudoku.length; i++) {
+            for (int j = 0; j < sudoku[i].length; j++) {
+                if (i > filaActual || (i == filaActual && j >= colActual)) {
+                    return false;  // no revises lo que aún no está lleno
+                }
+
+                if (sudoku[i][j] == numero) {
+                    return true;  // número ya existe, está repetido
                 }
             }
         }
-        return false;
+        return false; // número no está, puedes usarlo
     }
 
-    // solo los numeros de la primera columna
-    public void numerosColumna(int nColumna){
-        for (int i = 0; i < sudoku.length; i++) {
-            System.out.println(sudoku[i][nColumna]);
-        }
-    }
-
-    public void numerosFila(int nFila){
-        for (int i = 0; i < sudoku[nFila].length; i++) {
-            System.out.print(sudoku[nFila][i]+"\t");
-        }
+    public static void main(String[] args) {
+        Sudoku s = new Sudoku();
+        s.empezarJuego();
     }
 }
