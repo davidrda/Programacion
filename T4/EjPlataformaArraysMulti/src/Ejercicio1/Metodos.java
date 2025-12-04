@@ -1,3 +1,5 @@
+package Ejercicio1;
+
 import java.util.Scanner;
 
 public class Metodos {
@@ -38,30 +40,20 @@ public class Metodos {
             }
             System.out.println();
         }
-
-        sumaMatrices = new int[matriz1.length][matriz1[0].length];
-
-        // Haces la suma de las 2 matrices
-        for (int i = 0; i < matriz1.length; i++) {
-            for (int j = 0; j < matriz1[i].length; j++) {
-                sumaMatrices[i][j] += matriz1[i][j];
-            }
-        }
-
-        for (int i = 0; i < matriz2.length; i++) {
-            for (int j = 0; j < matriz2[i].length; j++) {
-                sumaMatrices[i][j] += matriz2[i][j];
-            }
-        }
         System.out.println();
 
-        // Imprime sumaMatrices
+        sumaMatrices = new int[filas][columnas];
+
+        // Haces la suma de las 2 matrices
         System.out.println("MATRIZ 3:");
-        for (int i = 0; i < sumaMatrices.length; i++) {
-            for (int j = 0; j < sumaMatrices[i].length; j++) {
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                sumaMatrices[i][j] = matriz1[i][j] + matriz2[i][j];
                 System.out.print(sumaMatrices[i][j]+"\t");
             }
             System.out.println();
         }
+        System.out.println();
+
     }
 }
