@@ -15,24 +15,26 @@ public class Metodos {
     public void menuArray(){
         Scanner sc = new Scanner(System.in);
         char opcion;
-        do {
-            System.out.println();
-            System.out.println("MENÚ DE OPCIONES");
-            System.out.println("a. Imprimir array");
-            System.out.println("b. Mover a izquierda");
-            System.out.println("c. Mover a derecha");
-            System.out.println("d. Invertir");
 
-            System.out.println();
+        System.out.println();
+        System.out.println("MENÚ DE OPCIONES");
+        System.out.println("a. Imprimir array");
+        System.out.println("b. Mover a izquierda");
+        System.out.println("c. Mover a derecha");
+        System.out.println("d. Invertir");
+        System.out.println("e. Rotar por pares");
+
+        do {
 
             System.out.println("Elige opción:");
             opcion = sc.next().charAt(0);
 
             switch (opcion) {
                 case 'a'->{
-                    for (int i = 0; i < array.length; i++) {
-                        System.out.print(array[i]+"\t");
+                    for (int item: array){
+                        System.out.print(item+" ");
                     }
+                    System.out.println();
                 }
                 case 'b'->{
                     int primero = array[0]; // Se guarda el primer elemento
@@ -69,10 +71,17 @@ public class Metodos {
                     }
                     System.out.println();
                 }
+                case 'e'->{
+                    for (int i = 0; i < array.length; i+=2) {
+                        int temporal = array[i];
+                        array[i] = array[i+1];
+                        array[i+1] = temporal;
+                    }
+                }
                 default -> {
                     System.out.println("No existe esta opción");
                 }
             }
-        } while (opcion == 'a'||opcion == 'b'||opcion == 'c' ||opcion == 'd');
+        } while (opcion == 'a'||opcion == 'b'||opcion == 'c' ||opcion == 'd' || opcion == 'e');
     }
 }
