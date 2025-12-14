@@ -1,32 +1,33 @@
 package model;
 
+// TODA CLASE JAVA EXTIENDE OBJECT
 public class Coche {
-
+    // tengo toda la funcionalidad que me ha dado la clase object
     private String marca, modelo, color;
+    private int numeroPuertas, cv, precio;
 
-    private int cv, numeroPuertas, precio;
 
-    public Coche(){}
+    // tipo_acceso tipo_retorno nombre_metodo (argumentos){cuerpo metodo}
+    // tipo_acceso nombre_metodo (argumentos){cuerpo metodo} -> no le digo que retorna
+    // CONSTRUCTORES -> mínimo tengo 1, el vacio esta por defecto (implicito) solo si no hay uno ya escrito (enmascara)
 
-    public Coche(String marca, String modelo, int cv, int precio){
+
+    public Coche() {
+    }
+
+    public Coche(String marca, String modelo, int cv, int precio) {
         this.marca = marca;
         this.modelo = modelo;
         this.cv = cv;
         this.precio = precio;
     }
-    public Coche(String marca, String modelo, int cv, int precio, int numeroPuertas){
+
+    public Coche(String marca, String modelo, int numeroPuertas, int cv, int precio) {
         this.marca = marca;
         this.modelo = modelo;
+        this.numeroPuertas = numeroPuertas;
         this.cv = cv;
         this.precio = precio;
-        this.numeroPuertas = numeroPuertas;
-    }
-
-    public Coche(String marca, int cv, String color, int numeroPuertas) {
-        this.marca = marca;
-        this.cv = cv;
-        this.color = color;
-        this.numeroPuertas = numeroPuertas;
     }
 
     public String getMarca() {
@@ -53,20 +54,20 @@ public class Coche {
         this.color = color;
     }
 
-    public int getCv() {
-        return cv;
-    }
-
-    public void setCv(int cv) {
-        this.cv = cv;
-    }
-
     public int getNumeroPuertas() {
         return numeroPuertas;
     }
 
     public void setNumeroPuertas(int numeroPuertas) {
         this.numeroPuertas = numeroPuertas;
+    }
+
+    public int getCv() {
+        return cv;
+    }
+
+    public void setCv(int cv) {
+        this.cv = cv;
     }
 
     public int getPrecio() {
