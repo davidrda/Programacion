@@ -1,3 +1,5 @@
+package ejercicio5;
+
 public abstract class Empleado {
 
     protected String nombre;

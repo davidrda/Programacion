@@ -1,4 +1,7 @@
 package ejercicio4.model;
 
-public class Figura {
+public abstract class Figura {
+
+
+    public abstract double calcularArea();
 }
