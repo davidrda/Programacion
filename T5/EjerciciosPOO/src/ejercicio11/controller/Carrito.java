@@ -1,33 +1,76 @@
 package ejercicio11.controller;
 
 import ejercicio11.model.Producto;
-
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Carrito {
 
-    private ArrayList<Producto> listaProductos;
-    private ArrayList<Integer> cantidades;
+    HashMap<Producto,Integer> carrito;
 
     public Carrito() {
-        listaProductos = new ArrayList<>();
-        cantidades = new ArrayList<>();
+        carrito = new HashMap<>();
     }
 
-    public Carrito(ArrayList<Producto> listaProductos, ArrayList<Integer> cantidades) {
-        this.listaProductos = listaProductos;
-        this.cantidades = cantidades;
-
+    public Carrito(HashMap<Producto, Integer> carrito) {
+        this.carrito = carrito;
     }
 
     public void anadirProducto(Producto producto, int cantidad){
-        boolean encontrado = false;
-
-        for (int i = 0; i < listaProductos.size(); i++) {
-            if (listaProductos.get(i).getCodigo() == producto.getCodigo()) {
-                int actual = cantidades
-            }
+        // no se puede poner una cantidad no válida
+        if (cantidad <= 0) {
+            System.out.println("Cantidad no válida");
+            return;
         }
 
+        // debe haber stock disponible
+        if (producto.getStock() < cantidad) {
+            System.out.println("Stock insuficiente");
+            return;
+        }
+
+        // si el producto ya está en el carrito, se suma cantidad
+        if (carrito.containsKey(producto)) {
+            int cantidadActual = carrito.get(producto);
+            carrito.put(producto, cantidadActual + cantidad);
+        } else { // si no, se pone en el carrito
+            carrito.put(producto,cantidad);
+        }
+
+        System.out.printf("Añadiendo %s (%.2f) x%d al carrito...%n",producto.getNombre(),producto.getPrecio(),cantidad);
+    }
+
+    public void eliminarProducto (Producto producto) {
+        if (carrito.containsKey(producto)) {
+            carrito.remove(producto);
+            System.out.printf("Eliminando %s del carrito....%n",producto.getNombre());
+        } else {
+            System.out.println("El producto no está en el carrito");
+        }
+    }
+
+    public double calcularTotal() {
+        double total = 0;
+
+        for (Map.Entry<Producto, Integer> entry : carrito.entrySet()) {
+            Producto p = entry.getKey();
+            int cantidad = entry.getValue();
+            total += p.getPrecio() * cantidad;
+        }
+
+        return total;
+    }
+
+    public void finalizarCompra(){
+        System.out.println("Finalizando compra...");
+
+        for (Map.Entry<Producto, Integer> entry : carrito.entrySet()) {
+            Producto p = entry.getKey();
+            int cantidad = entry.getValue();
+            p.setStock(p.getStock() - cantidad);
+        }
+
+        carrito.clear();
+        System.out.println("Compra realizada con éxito");
     }
 }

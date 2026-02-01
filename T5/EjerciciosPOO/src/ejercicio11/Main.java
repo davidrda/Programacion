@@ -20,6 +20,20 @@ public class Main {
 
         // Se añaden productos al carrito
         carrito.anadirProducto(portatil,4);
-        carrito.anadirProducto(raton,1);
+        carrito.anadirProducto(teclado,1);
+        carrito.anadirProducto(monitor,7);
+        carrito.anadirProducto(raton,4);
+
+        // Se eliminan productos
+        carrito.eliminarProducto(teclado);
+
+        //Se calcula el total
+        System.out.println("Total: "+carrito.calcularTotal());
+
+        //Finalizar compra
+        carrito.finalizarCompra();
+
+        System.out.println("Total: "+carrito.calcularTotal());
+
     }
 }
