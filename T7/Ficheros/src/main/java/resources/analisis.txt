@@ -1,0 +1,11 @@
+Esto es un ejemplo de la lectura del fichero en modo texto
+Esto es una linea secundaria
+Con esta linea damos por concluido el fichero
+
+
+
+
+
+
+
+
