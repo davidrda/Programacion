@@ -1,6 +1,10 @@
 package ejercicio1;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import netscape.javascript.JSObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.awt.color.ICC_ColorSpace;
 import java.io.IOException;
@@ -13,6 +17,36 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String url = "https://randomuser.me/api/";
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        try {
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            JSONObject jsonObject = new JSONObject(response.body());
+            JSONArray jsonArray = jsonObject.getJSONArray("results");
+
+            JSONObject results = jsonArray.getJSONObject(0);
+            JSONObject nombre = results.getJSONObject("name");
+            JSONObject email = results.getJSONObject("email");
+            JSONObject localizacion = results.getJSONObject("country");
+
+
+        } catch (IOException e) {
+            System.out.println("Error de io " + e);
+        } catch (InterruptedException e) {
+            System.out.println("Error de red " + e);
+        }
+
+    }
+
+        /*
         String url = "https://randomuser.me/api/";
         try{
 
@@ -56,4 +90,6 @@ public class Main {
             System.out.println("Error InterruptedException");
         }
     }
+
+         */
 }

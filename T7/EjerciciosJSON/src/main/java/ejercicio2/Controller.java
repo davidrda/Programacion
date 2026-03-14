@@ -1,6 +1,8 @@
 package ejercicio2;
 
 import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 import java.io.IOException;
@@ -11,7 +13,46 @@ import java.net.http.HttpResponse;
 
 public class Controller {
 
+
+    public void APIcontroller (String api) {
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest
+                .newBuilder()
+                .uri(URI.create(api))
+                .build();
+
+        try {
+
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            JSONObject jsonObject = new JSONObject(httpResponse.body());
+            JSONArray jsonArray = jsonObject.getJSONArray("products");
+            JSONObject producto = null;
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                producto = jsonArray.getJSONObject(i);
+
+                System.out.printf("""
+                        ID: %s
+                        Title: %s
+                        Price: %.2f
+                        """
+                        , producto.get("id")
+                        , producto.get("title")
+                        , producto.get("price")
+                );
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error de io");
+        } catch (InterruptedException e){
+            System.out.println("Error de red");
+        }
+    /*
     public Producto[] APIcontroller(String api){
+
 
         try {
             Gson gson = new Gson();
@@ -41,5 +82,7 @@ public class Controller {
             System.out.println("Error InterruptedException");
             return null;
         }
+
+         */
     }
 }
