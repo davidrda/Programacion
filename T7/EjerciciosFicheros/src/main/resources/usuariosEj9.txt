@@ -1,0 +1,4 @@
+Usuario{nombre='David1', apellido='Ramirez1', dni='544A'}
+Usuario{nombre='David2', apellido='Ramirez2', dni='544B'}
+Usuario{nombre='David3', apellido='Ramirez3', dni='544C'}
+Usuario{nombre='David4', apellido='Ramirez4', dni='544D'}
