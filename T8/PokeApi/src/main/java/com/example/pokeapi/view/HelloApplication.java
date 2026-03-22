@@ -1,4 +1,4 @@
-package com.example.mytiendaapp;
+package com.example.pokeapi.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         // Carga la parte gráfica en el FXMLoader
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("form-view.fxml"));
+        FXMLLoader fxmlLoader =
+                new FXMLLoader(HelloApplication.class.getResource("/com/example/pokeapi/main-view" +
+                        ".fxml"));
 
         // Crea la escena y le asocia la parte gráfica
         Scene scene = new Scene(fxmlLoader.load(), 500, 400);
@@ -24,7 +26,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
 
         // Pone el título en la ventana
-        stage.setTitle("Tienda The Power");
+        stage.setTitle("Poke Api");
 
         // Muestra la ventana
         stage.show();
