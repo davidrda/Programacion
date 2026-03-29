@@ -1,5 +1,7 @@
 package com.example.mytiendaapp.controller;
 
+import com.example.mytiendaapp.HelloApplication;
+import com.example.mytiendaapp.data.DataSet;
 import com.example.mytiendaapp.model.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,13 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import lombok.Value;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +35,9 @@ public class FormController implements Initializable {
 
     @FXML
     private Button btnAgregar;
+
+    @FXML
+    private Button btnCerrar;
 
     @FXML
     private Button btnComprobar;
@@ -112,7 +121,7 @@ public class FormController implements Initializable {
     private void initGUI() {
 
         // A la listView le añades la listaUsers
-        listViewUsuarios.setItems(listaUsers);
+        listViewUsuarios.setItems(DataSet.getListUsers());
 
         // Al spinner le añades modelEdad
         spinnerEdad.setValueFactory(modelEdad);
@@ -169,12 +178,38 @@ public class FormController implements Initializable {
 
                 // Y crea un user, agregalo a la lista, y enseña el dialogo
                 User user = new User(nombre, apellido, correo, pass, dni, genero, perfil, edad);
-                listaUsers.add(user);
+                DataSet.getListUsers().add(user);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("Usuario añadido");
                 alert.setContentText("Usuario añadido con éxito");
                 alert.show();
                 clearFields();
+            }
+
+
+        });
+        btnCerrar.setOnAction(e -> {
+
+            try {
+                // 1. Creo stage
+                Stage stage = new Stage();
+
+                // 2. Creo scene
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+
+                // 3. Asocio stage a scene
+                stage.setScene(scene);
+                stage.setTitle("Tienda ThePower");
+                stage.show();
+
+                // 4. Cierro stage actual
+                // Coge la scene de donde se ubica btnCerrar y cierra el stage al que está asignado
+                ((Stage) btnCerrar.getScene().getWindow()).close();
+
+
+            } catch (IOException ex) {
+                System.out.println("No se encuentra la ruta");;
             }
 
 

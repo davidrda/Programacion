@@ -1,6 +1,8 @@
 package com.example.mytiendaapp.controller;
 
 import com.example.mytiendaapp.HelloApplication;
+import com.example.mytiendaapp.data.DataSet;
+import com.example.mytiendaapp.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,27 +44,37 @@ public class LoginController implements Initializable {
             // Metes la info en variables
             String email = editCorreo.getText();
             String pass = editPass.getText();
-
+            // hacer el filtrado de la lista o de la BD (SELECT)
+            User user = DataSet.getLogin(email, pass);
             // Filtrado: Si loguea -> carga otra ventana. Si no loguea, error
-            if (email.equals("admin@admin.com") && pass.equals("admin")){
+            if (user != null){
 
                 // Crea la ventana
                 Stage ventanaPrincipal = new Stage();
 
                 // ========== Crea un scene y carga parte gráfica =============
                 try {
-                    // Cargo el fichero form-view
-                    FXMLLoader fxmlLoader =
-                            new FXMLLoader(HelloApplication.class.getResource("form-view.fxml"));
+
+                    // Cargo el fichero según el perfil
+                    FXMLLoader fxmlLoader;
+                    switch (user.getPerfil().toLowerCase()){
+                        case "admin":
+                            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("form-view.fxml"));
+                            ventanaPrincipal.setTitle("Formulario de administración");
+                            break;
+                        case "usuario":
+                            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tienda-view.fxml"));
+                            ventanaPrincipal.setTitle("Tienda de productos");
+                            break;
+                        default:
+                            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("form-view.fxml"));
+                    }
 
                     // Activo el fichero form-view y se lo asocio a una escena
                     Scene scene = new Scene(fxmlLoader.load());
 
                     // La escena se la asocio a una ventana
                     ventanaPrincipal.setScene(scene);
-
-                    // A la ventana le pongo el titulo
-                    ventanaPrincipal.setTitle("Formulario de administración");
 
                     // Enseño la ventana
                     ventanaPrincipal.show();
@@ -72,6 +84,8 @@ public class LoginController implements Initializable {
 
                 } catch (IOException e) {
                     System.out.println("Error en la carga de la ruta");
+                } catch (NullPointerException e) {
+                    System.out.println("Error de null");
                 }
                 // =================================================================
             } else {
