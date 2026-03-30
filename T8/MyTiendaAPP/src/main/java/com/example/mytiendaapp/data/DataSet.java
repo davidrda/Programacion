@@ -10,8 +10,9 @@ public class DataSet {
 
     // al ser static, la lista pertenece a la clase y no hace falta declarar el objeto en otras clases
     static private ObservableList<User> listUsers =
-            FXCollections.observableArrayList(new User("Admin", "Admin", "admin@admin.com",
-                    "admin", "1234", "Femenino", "admin", 50));
+            FXCollections.observableArrayList(
+                    new User("Admin", "Admin", "admin@admin.com", "admin", "1234", "Femenino", "admin", 50),
+                    new User("David", "Ramirez", "david@david.com",  "david", "12345", "Masculino", "usuario", 25));
 
     public static ObservableList<User> getListUsers() {
         return listUsers;

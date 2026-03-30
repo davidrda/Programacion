@@ -70,7 +70,7 @@ public class LoginController implements Initializable {
                             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("form-view.fxml"));
                     }
 
-                    // Activo el fichero form-view y se lo asocio a una escena
+                    // Activo el fichero y se lo asocio a una escena
                     Scene scene = new Scene(fxmlLoader.load());
 
                     // La escena se la asocio a una ventana
