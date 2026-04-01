@@ -17,7 +17,7 @@ public class FileController {
         ) {
             // Escribe el objeto completo la lista de favoritos
             oos.writeObject(favoritos);
-            System.out.println("Favoritos guardados correctamente");
+            System.out.println("\nFavoritos guardados correctamente!");
         } catch (IOException e){
             System.out.println("Error al exportar favoritos");
         }

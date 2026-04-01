@@ -23,7 +23,7 @@ public class BibliotecaController {
         List<Libro> libros = apiController.getAPI();
         if (libros != null) {
             biblioteca.setLibros(libros);
-            System.out.println("Libros importados");
+            System.out.println("Libros importados!");
         } else {
             System.out.println("No se han podido importar los libros");
         }

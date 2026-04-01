@@ -49,21 +49,21 @@ public class InfoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        instances();
         actions();
     }
 
     private void actions() {
         btnFavoritos.setOnAction(event -> {
+
+            if (bibliotecaController == null || libro == null) {
+                System.out.println("Error, datos no inicializados");
+                return;
+            }
             bibliotecaController.addFavorito(libro.getId());
 
             FileController fileController = new FileController();
             fileController.exportarFavoritos(bibliotecaController.getFavoritos());
         });
-    }
-
-    private void instances() {
-
     }
 
     public void setBibliotecaController(BibliotecaController bc) {

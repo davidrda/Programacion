@@ -43,18 +43,31 @@ public class BusquedaController implements Initializable {
         bibliotecaController = new BibliotecaController();
     }
 
-    private void buscarLibro(){
+    private void buscarLibro() {
+
+        String texto = editLibro.getText().trim();
+        if (texto.isEmpty()) {
+            System.out.println("Valor vacío");
+            return;
+        }
 
         // Guarda el .getText de editLibro en la variable id
-        int id = Integer.parseInt((editLibro.getText()));
+        int id = 0;
+        try {
+            id = Integer.parseInt((editLibro.getText().trim()));
+        } catch (NumberFormatException e) {
+            System.out.println("Por favor, introduce un número válido");
+        }
 
         // Primero se cargan los libros
-        bibliotecaController.importarLibros();
+        if (bibliotecaController.getLibros().isEmpty()) {
+            bibliotecaController.importarLibros();
+        }
 
         // Se busca libro por id, cogiendo el editLibro.getText
         Libro libro = bibliotecaController.buscarLibroPorId(id);
 
-        if (libro != null){
+        if (libro != null) {
             abrirVistaInfo(libro);
         } else {
             System.out.println("Libro no encontrado");
