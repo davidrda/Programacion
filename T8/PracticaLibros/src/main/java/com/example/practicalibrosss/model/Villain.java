@@ -1,4 +1,13 @@
 package com.example.practicalibrosss.model;
 
-public class Villain {
+import lombok.Data;
+import java.io.Serializable;
+
+@Data
+public class Villain implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private String name;
+    private String url;
 }
