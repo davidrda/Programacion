@@ -2,10 +2,12 @@ package com.example.practicalibrosss.controller;
 
 
 import com.example.practicalibrosss.model.Libro;
+import com.example.practicalibrosss.service.BibliotecaController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,12 +26,15 @@ public class BusquedaController implements Initializable {
 
     private BibliotecaController bibliotecaController;
 
+    public void setBibliotecaController(BibliotecaController bc) {
+        this.bibliotecaController = bc;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         instances();
         actions();
-        System.out.println(btnBuscar);
 
     }
 
@@ -48,6 +53,10 @@ public class BusquedaController implements Initializable {
         String texto = editLibro.getText().trim();
         if (texto.isEmpty()) {
             System.out.println("Valor vacío");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Texto vacío");
+            alert.setContentText("Rellena el campo para poder buscar");
+            alert.show();
             return;
         }
 
@@ -82,12 +91,12 @@ public class BusquedaController implements Initializable {
             // Se obtiene el controller de la nueva vista
             InfoController infoController = fxmlLoader.getController();
 
-            // Pasar el libro
+            // Pasar el libro y BibliotecaController
             infoController.setLibro(libro);
             infoController.setBibliotecaController(bibliotecaController);
 
             // Cambiar ventana
-            Stage stage = (Stage)btnBuscar.getScene().getWindow();
+            Stage stage = (Stage) btnBuscar.getScene().getWindow();
             stage.setTitle("Información del libro");
             stage.setScene(scene);
         } catch (IOException e){

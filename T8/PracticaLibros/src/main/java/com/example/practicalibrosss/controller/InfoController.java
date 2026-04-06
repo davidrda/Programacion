@@ -1,11 +1,18 @@
 package com.example.practicalibrosss.controller;
 
 import com.example.practicalibrosss.model.Libro;
+import com.example.practicalibrosss.service.BibliotecaController;
+import com.example.practicalibrosss.service.FileController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +20,9 @@ public class InfoController implements Initializable {
 
     @FXML
     private Button btnFavoritos;
+
+    @FXML
+    private Button btnAtras;
 
     @FXML
     private Label lblIsbn;
@@ -60,10 +70,33 @@ public class InfoController implements Initializable {
                 return;
             }
             bibliotecaController.addFavorito(libro.getId());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("¡Libro añadido!");
+            alert.setContentText("Has añadido el libro a favoritos");
+            alert.show();
 
             FileController fileController = new FileController();
             fileController.exportarFavoritos(bibliotecaController.getFavoritos());
         });
+
+        btnAtras.setOnAction(event -> {
+            abrirVistaBusqueda();
+        });
+    }
+
+    private void abrirVistaBusqueda() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/practicalibrosss/busqueda-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            BusquedaController busquedaController = fxmlLoader.getController();
+            busquedaController.setBibliotecaController(this.bibliotecaController);
+
+            Stage stage = (Stage) btnAtras.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e){
+            System.out.println("Error de input/output");
+        }
     }
 
     public void setBibliotecaController(BibliotecaController bc) {

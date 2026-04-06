@@ -1,4 +1,4 @@
-package com.example.practicalibrosss.controller;
+package com.example.practicalibrosss.service;
 
 import com.example.practicalibrosss.model.Biblioteca;
 import com.example.practicalibrosss.model.Libro;
@@ -10,7 +10,7 @@ public class BibliotecaController {
 
     private Biblioteca biblioteca;
     private List<Libro> favoritos;
-    private  APIController apiController;
+    private APIController apiController;
 
 
     public BibliotecaController() {

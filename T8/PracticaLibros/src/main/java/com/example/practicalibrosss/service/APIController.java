@@ -1,4 +1,4 @@
-package com.example.practicalibrosss.controller;
+package com.example.practicalibrosss.service;
 
 import com.example.practicalibrosss.model.APIResponse;
 import com.example.practicalibrosss.model.Libro;
